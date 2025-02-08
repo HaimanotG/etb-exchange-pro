@@ -14,23 +14,9 @@ export type RatesResponse = {
   hasNextPage: boolean;
 };
 
-import { headers } from "next/headers";
-
 export async function getRates(): Promise<RatesResponse> {
   try {
-    let baseUrl = "/";
-
-    if (typeof window === "undefined") {
-      const headersList = await headers();
-      const host = headersList.get("host");
-      const protocol = headersList.get("x-forwarded-proto") || "http";
-      baseUrl = `${protocol}://${host}`;
-    } else {
-      const url = new URL(window.location.href);
-      baseUrl = `${url.protocol}//${url.host}`;
-    }
-
-    console.log(`Base URL: ${baseUrl}`);
+    const baseUrl = process.env.DOMAIN ?? process.env.NEXT_PUBLIC_DOMAIN;
 
     const response = await fetch(`${baseUrl}/api/rates`, {
       headers: {
