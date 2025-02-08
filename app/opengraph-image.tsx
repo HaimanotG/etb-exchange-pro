@@ -8,7 +8,7 @@ export const size = {
   height: 630,
 };
 
-export async function GET() {
+export default async function Image() {
   const rates = await getRates();
   const latestRate = rates.items[0];
 

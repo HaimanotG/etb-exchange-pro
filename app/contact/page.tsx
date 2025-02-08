@@ -2,13 +2,19 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Contact Us - ETB Exchange Rates",
-  description: "Get in touch with ETB Exchange. We're here to help with your Ethiopian Birr exchange rate inquiries and feedback.",
+  description:
+    "Get in touch with ETB Exchange. We're here to help with your Ethiopian Birr exchange rate inquiries and feedback.",
   keywords: [
     "contact ETB Exchange",
     "Ethiopian currency support",
     "ETB rate inquiry",
     "currency exchange contact",
     "Birr exchange support",
+    "ETB exchange assistance",
+    "ETB currency exchange",
+    "Ethiopian currency exchange",
+    "ETB exchange contact",
+    "ETB exchange support",
   ],
   openGraph: {
     title: "Contact ETB Exchange",

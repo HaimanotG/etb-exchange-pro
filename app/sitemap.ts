@@ -1,12 +1,7 @@
 import type { MetadataRoute } from "next";
-import { headers } from "next/headers";
 
-export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const headersList = await headers();
-
-  const host = headersList.get("host");
-  const protocol = headersList.get("x-forwarded-proto");
-  const BASE_URL = `${protocol}://${host}`;
+export default function sitemap(): MetadataRoute.Sitemap {
+  const BASE_URL = process.env.DOMAIN;
 
   return [
     {

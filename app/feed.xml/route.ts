@@ -1,13 +1,8 @@
 import { getRates } from "@/lib/get-rates";
-import { headers } from "next/headers";
 
 export async function GET() {
   const rates = await getRates();
-  const headersList = await headers();
-
-  const host = headersList.get("host");
-  const protocol = headersList.get("x-forwarded-proto");
-  const BASE_URL = `${protocol}://${host}`;
+  const BASE_URL = process.env.DOMAIN ?? process.env.NEXT_PUBLIC_DOMAIN;
 
   const xml = `<?xml version="1.0" encoding="UTF-8" ?>
     <rss version="2.0">

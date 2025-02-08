@@ -30,6 +30,8 @@ export async function getRates(): Promise<RatesResponse> {
       baseUrl = `${url.protocol}//${url.host}`;
     }
 
+    console.log(`Base URL: ${baseUrl}`);
+
     const response = await fetch(`${baseUrl}/api/rates`, {
       headers: {
         "Content-Type": "application/json",
