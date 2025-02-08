@@ -13,6 +13,10 @@ type ChartData = {
 };
 
 export function RatesChart({ rates }: { rates: Rate[] }) {
+  const url = new URL(window.location.href);
+  const baseUrl = `${url.protocol}//${url.host}`;
+
+  console.log(baseUrl);
   const chartData = rates.map((item: ChartData) => ({
     ...item,
     date: new Date(item.date).toISOString(),
