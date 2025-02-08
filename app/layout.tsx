@@ -9,7 +9,7 @@ import { StructuredData } from "@/components/structured-data";
 import "./globals.css";
 import type React from "react"; // Import React
 import { ErrorBoundary } from "@/components/error-boundary";
-import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import Script from "next/script";
 import { SiteFooter } from "@/components/site-footer";
 import { CanonicalUrl } from "@/components/canonical-url";
@@ -85,9 +85,12 @@ export const metadata: Metadata = {
   },
   other: {
     "google-site-verification": process.env.GOOGLE_SITE_VERIFICATION_KEY!,
+    "google-adsense-account": process.env.NEXT_PUBLIC_ADSENSE_ID,
   },
   metadataBase: new URL(process.env.DOMAIN!),
 };
+
+console.log(metadata);
 
 export default function RootLayout({
   children,
@@ -106,7 +109,7 @@ export default function RootLayout({
         <FaqSchema />
       </head>
       <body className={GeistSans.className}>
-        <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID!} />
+        {/* <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID!} /> */}
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

@@ -5,9 +5,10 @@ export function validateEnv() {
     NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL,
 
     GOOGLE_SITE_VERIFICATION_KEY: process.env.GOOGLE_SITE_VERIFICATION_KEY,
-    NEXT_PUBLIC_GA_ID: process.env.GOOGLE_SITE_VERIFICATION_KEY,
-    NEXT_PUBLIC_GTM_ID: process.env.GOOGLE_SITE_VERIFICATION_KEY,
-    NEXT_PUBLIC_CLICKY_ID: process.env.GOOGLE_SITE_VERIFICATION_KEY,
+    NEXT_PUBLIC_GA_ID: process.env.NEXT_PUBLIC_GA_ID,
+    NEXT_PUBLIC_GTM_ID: process.env.NEXT_PUBLIC_GTM_ID,
+    NEXT_PUBLIC_CLICKY_ID: process.env.NEXT_PUBLIC_CLICKY_ID,
+    NEXT_PUBLIC_ADSENSE_ID: process.env.NEXT_PUBLIC_ADSENSE_ID,
   };
 
   const missingEnvVars = Object.entries(requiredEnvVars)
