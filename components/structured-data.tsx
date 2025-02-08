@@ -15,7 +15,7 @@ export function StructuredData() {
     },
     author: {
       "@type": "Organization",
-      name: "Haimanot Getu",
+      name: "Ethio Black",
     },
   };
 

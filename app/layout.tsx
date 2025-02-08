@@ -26,8 +26,8 @@ export const metadata: Metadata = {
     "Ethiopian currency",
     "Birr exchange rate",
   ],
-  authors: [{ name: "Haimanot Getu" }],
-  creator: "Haimanot Getu",
+  authors: [{ name: "Ethio Black" }],
+  creator: "Ethio Black",
   publisher: "Your Organization",
   formatDetection: {
     email: false,

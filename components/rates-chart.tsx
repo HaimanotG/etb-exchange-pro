@@ -3,6 +3,7 @@
 import { Line, LineChart, Tooltip, XAxis, YAxis } from "recharts";
 import { ChartContainer } from "@/components/ui/chart";
 import { Rate } from "@/lib/get-rates";
+import { formatDistanceToNow } from "date-fns";
 
 type ChartData = {
   id: number;
@@ -24,7 +25,7 @@ export function RatesChart({ rates }: { rates: Rate[] }) {
     : "0.00";
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-4 w-full">
       <div className="rounded-lg border bg-card p-4">
         <div className="flex flex-col gap-1">
           <span className="text-sm text-muted-foreground">
@@ -34,6 +35,12 @@ export function RatesChart({ rates }: { rates: Rate[] }) {
             <span className="text-2xl font-bold">{todayAverage}</span>
             <span className="text-sm text-muted-foreground">ETB</span>
           </div>
+          <div className="text-xs text-muted-foreground">
+            Last updated: {formatDistanceToNow(new Date(), { addSuffix: true })}{" "}
+          </div>
+          <span className="text-sm text-muted-foreground">
+            Reload the page to the latest rates
+          </span>
         </div>
       </div>
       <ChartContainer
@@ -43,7 +50,7 @@ export function RatesChart({ rates }: { rates: Rate[] }) {
             color: "hsl(var(--primary))",
           },
         }}
-        className="h-[300px]"
+        className="h-[300px] w-full"
       >
         <LineChart
           data={chartData}

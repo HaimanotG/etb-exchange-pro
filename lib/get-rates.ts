@@ -26,7 +26,15 @@ export async function getRates(): Promise<RatesResponse> {
     );
 
     if (!response.ok) {
-      throw new Error(`Something went wrong try again later`);
+      console.log(`Something went wrong try again later`);
+      return {
+        pageNumber: 0,
+        totalPages: 0,
+        totalCount: 0,
+        items: [],
+        hasNextPage: false,
+        hasPreviousPage: false,
+      };
     }
 
     const data = await response.json();
