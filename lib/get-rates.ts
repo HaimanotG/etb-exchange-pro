@@ -16,9 +16,12 @@ export type RatesResponse = {
 
 export async function getRates(): Promise<RatesResponse> {
   try {
-    const baseUrl = process.env.DOMAIN ?? process.env.NEXT_PUBLIC_DOMAIN;
+    const url =
+      typeof window === "undefined"
+        ? `${process.env.DOMAIN}/api/rates`
+        : "/api/rates";
 
-    const response = await fetch(`${baseUrl}/api/rates`, {
+    const response = await fetch(url, {
       headers: {
         "Content-Type": "application/json",
       },

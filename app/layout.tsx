@@ -117,12 +117,7 @@ export default function RootLayout({
             <SiteHeader />
             <main className="flex-1">
               <div className="container py-10">
-                <Breadcrumbs
-                  items={[
-                    { title: "Home", href: "/" },
-                    // Additional items will be added per page
-                  ]}
-                />
+                <Breadcrumbs items={[{ title: "Home", href: "/" }]} />
                 <ErrorBoundary>
                   {children}
                   <Toaster />
@@ -149,6 +144,13 @@ export default function RootLayout({
           async
           data-id={process.env.NEXT_PUBLIC_CLICKY_ID!}
           src="//static.getclicky.com/js"
+        />
+        <FaqSchema />
+        <Script
+          async
+          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_ADSENSE_ID}`}
+          crossOrigin="anonymous"
+          strategy="afterInteractive"
         />
       </body>
     </html>
