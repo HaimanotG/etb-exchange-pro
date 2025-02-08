@@ -1,23 +1,12 @@
-import type { MetadataRoute } from "next";
-import { headers } from "next/headers";
+import { MetadataRoute } from "next";
 
-export default async function robots(): Promise<MetadataRoute.Robots> {
-  const allowCrawling = process.env.ALLOW_CRAWLING === "true";
-  const headersList = await headers();
-
-  const host = headersList.get("host");
-  const protocol = headersList.get("x-forwarded-proto");
-  const BASE_URL = `${protocol}://${host}`;
-
+export default function robots(): MetadataRoute.Robots {
   return {
     rules: {
       userAgent: "*",
-      ...(allowCrawling
-        ? {
-            allow: "/",
-          }
-        : { disallow: "/" }),
+      allow: "/",
+      disallow: ["/api/", "/private/"],
     },
-    sitemap: `${BASE_URL}/sitemap.xml`,
+    sitemap: `${process.env.DOMAIN}/sitemap.xml`,
   };
 }

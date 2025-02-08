@@ -2,12 +2,12 @@ import Link from "next/link";
 import { Menu } from "lucide-react";
 import { Button } from "./ui/button";
 import ThemeToggle from "./theme-toggle";
-import { 
-  Sheet, 
-  SheetContent, 
+import {
+  Sheet,
+  SheetContent,
   SheetHeader,
   SheetTitle,
-  SheetTrigger 
+  SheetTrigger,
 } from "@/components/ui/sheet";
 
 export function SiteHeader() {
@@ -27,23 +27,29 @@ export function SiteHeader() {
                 <SheetTitle>Navigation Menu</SheetTitle>
               </SheetHeader>
               <nav className="mt-6 flex flex-col gap-4">
-                <Link 
-                  href="/" 
+                <Link
+                  href="/"
                   className="text-lg font-semibold transition-colors hover:text-primary"
                 >
                   Home
                 </Link>
-                <Link 
-                  href="/historical" 
+                <Link
+                  href="/about"
                   className="text-lg text-muted-foreground transition-colors hover:text-primary"
                 >
-                  Historical Data
+                  About Us
                 </Link>
-                <Link 
-                  href="/converter" 
+                <Link
+                  href="/contact"
                   className="text-lg text-muted-foreground transition-colors hover:text-primary"
                 >
-                  Converter
+                  Contact
+                </Link>
+                <Link
+                  href="/privacy"
+                  className="text-lg text-muted-foreground transition-colors hover:text-primary"
+                >
+                  Privacy Policy
                 </Link>
               </nav>
             </SheetContent>
@@ -52,7 +58,27 @@ export function SiteHeader() {
             <span className="font-bold">ETB Exchange</span>
           </Link>
         </div>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-4">
+          {/* <nav className="hidden md:flex items-center gap-6">
+            <Link
+              href="/about"
+              className="text-sm text-muted-foreground transition-colors hover:text-primary"
+            >
+              About Us
+            </Link>
+            <Link
+              href="/contact"
+              className="text-sm text-muted-foreground transition-colors hover:text-primary"
+            >
+              Contact
+            </Link>
+            <Link
+              href="/privacy"
+              className="text-sm text-muted-foreground transition-colors hover:text-primary"
+            >
+              Privacy Policy
+            </Link>
+          </nav> */}
           <ThemeToggle />
         </div>
       </div>

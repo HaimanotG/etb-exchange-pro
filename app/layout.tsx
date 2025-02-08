@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { Analytics } from "@vercel/analytics/react";
 import { GeistSans } from "geist/font/sans";
 import type { Metadata } from "next";
@@ -10,6 +11,11 @@ import type React from "react"; // Import React
 import { ErrorBoundary } from "@/components/error-boundary";
 import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 import Script from "next/script";
+import { SiteFooter } from "@/components/site-footer";
+import { CanonicalUrl } from "@/components/canonical-url";
+import { SocialMeta } from "@/components/social-meta";
+import { FaqSchema } from "@/components/faq-schema";
+import { Breadcrumbs } from "@/components/breadcrumbs";
 
 export const metadata: Metadata = {
   title: {
@@ -48,7 +54,7 @@ export const metadata: Metadata = {
     title: "ETB Exchange Rates",
     description:
       "Real-time Ethiopian Birr (ETB) exchange rates against major currencies",
-    creator: "@yourusername",
+    creator: "@ethioblack",
   },
   robots: {
     index: true,
@@ -76,10 +82,15 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <StructuredData />
+        <CanonicalUrl path={"/"} />
+        <SocialMeta
+          title="ETB Exchange Rates | Official & Market Rates"
+          description="Real-time Ethiopian Birr (ETB) exchange rates against major currencies. Track official and market rates with historical data."
+        />
+        <FaqSchema />
       </head>
       <body className={GeistSans.className}>
         <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID!} />
-
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -90,21 +101,34 @@ export default function RootLayout({
             <SiteHeader />
             <main className="flex-1">
               <div className="container py-10">
+                <Breadcrumbs
+                  items={[
+                    { title: "Home", href: "/" },
+                    // Additional items will be added per page
+                  ]}
+                />
                 <ErrorBoundary>
                   {children}
                   <Toaster />
                 </ErrorBoundary>
               </div>
             </main>
+            <SiteFooter />
           </div>
         </ThemeProvider>
         <Analytics />
-        <Script
-          src="https://analytics.ahrefs.com/analytics.js"
-          data-key={process.env.NEXT_PUBLIC_AHREFS_KEY!}
-          async
-        />
         <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID!} />
+        <a
+          title="Web Analytics"
+          href={`https://clicky.com/${process.env.NEXT_PUBLIC_CLICKY_ID!}`}
+        >
+          <img
+            alt="Clicky"
+            src="//static.getclicky.com/media/links/badge.gif"
+            width={80}
+            height={20}
+          />
+        </a>
         <Script
           async
           data-id={process.env.NEXT_PUBLIC_CLICKY_ID!}
