@@ -1,29 +1,29 @@
 import { Suspense } from "react";
 import type { Metadata } from "next";
-import { ArrowRight } from "lucide-react";
+// import { ArrowRight } from "lucide-react";
 
 import { RatesTable } from "@/components/rates-table";
 import { RatesChart } from "@/components/rates-chart";
 import { RatesSkeleton } from "@/components/rates-skeleton";
 import { ErrorBoundary } from "@/components/error-boundary";
 import { SocialShare } from "@/components/social-share";
-import { RateComparison } from "@/components/rate-comparison";
+// import { RateComparison } from "@/components/rate-comparison";
 import { RateAlerts } from "@/components/rate-alerts";
-import { Input } from "@/components/ui/input";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+// import { Input } from "@/components/ui/input";
+// import {
+//   Select,
+//   SelectContent,
+//   SelectItem,
+//   SelectTrigger,
+//   SelectValue,
+// } from "@/components/ui/select";
+// import {
+//   Card,
+//   CardContent,
+//   CardDescription,
+//   CardHeader,
+//   CardTitle,
+// } from "@/components/ui/card";
 import { getRates } from "@/lib/get-rates";
 
 export const metadata: Metadata = {
@@ -71,7 +71,7 @@ export default async function HomePage() {
           </ErrorBoundary>
         </div>
       </div>
-
+      {/* 
       <div className="flex flex-col gap-6 lg:grid lg:grid-cols-2 lg:gap-8">
         <RateComparison />
         <Card>
@@ -126,6 +126,8 @@ export default async function HomePage() {
           </CardContent>
         </Card>
       </div>
+
+       */}
     </div>
   );
 }
