@@ -25,19 +25,27 @@ export const metadata: Metadata = {
   description:
     "Real-time Ethiopian Birr (ETB) exchange rates against major currencies. Track official and market rates with historical data.",
   keywords: [
-    "ETB exchange rate",
+    "ethio black",
+    "ethiopian black market",
+    "ethiopian black",
+    "usd etb black",
+    "etb usd black",
+    "birr usd black",
+    "etb usd exchange rate",
     "Ethiopian Birr rate",
     "ETB to USD",
     "ETB converter",
     "Ethiopian currency",
-    "Birr exchange rate",
-    "parallel market ETB",
-    "Ethiopian dollar rate",
+    "etb exchange rate",
+    "etb black exchange rate",
+    "birr exchange rate",
+    "parallel ETB market price",
+    "ethiopian dollar rate",
     "unofficial ETB rate",
-    "ETB market rates",
+    "etb market rates",
     "alternative exchange rates Ethiopia",
     "USDT Ethiopia",
-    "ETB currency market",
+    "etb currency market",
     "Ethiopian forex rates",
     "real ETB rate",
     "current Ethiopian dollar price",
@@ -89,8 +97,6 @@ export const metadata: Metadata = {
   },
   metadataBase: new URL(process.env.DOMAIN!),
 };
-
-console.log(metadata);
 
 export default function RootLayout({
   children,
@@ -148,7 +154,6 @@ export default function RootLayout({
           data-id={process.env.NEXT_PUBLIC_CLICKY_ID!}
           src="//static.getclicky.com/js"
         />
-        <FaqSchema />
         <Script
           async
           src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_ADSENSE_ID}`}
